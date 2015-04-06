@@ -1,0 +1,348 @@
+/**
+ *该CSS采用弹性布局，是为了让页面在不支持页面缩放的老式浏览器中能随字体的增大而漂亮的增大
+ */
+body {
+	/*针对ie6的无害hack：ie6不支持margin的auto属性，但ie6的text-align:center误将所有元素居中*/
+	text-align: center;
+}
+/*设置wrapper居中*/
+.wrapper {
+	/*这里将宽度设置为16*60=960px*/
+	width: 60em;
+	/*防止随着字号的增大整个布局会比浏览器窗口宽而出现滚动条：ie6不支持max-width：这里暂时不处理，只有对ie6用户的不佳体验说sorry了*/
+	max-width: 95%;
+	/*设置页面自动居中，ie6不支持auto属性，所以使用了hack--text-align: center实现居中*/
+	margin: 0 auto;
+	/*恢复wrapper中的文本*/
+	text-align: left;
+}
+
+.header {
+	position: relative;
+	margin: 1em;
+}
+
+.header h1 {
+	float: left;
+	font-size: 2em;
+	text-shadow: 4px 4px 3px #660;
+}
+
+div.header a, div.header span {
+	font-size: 0.8em;
+	display: block;
+	margin-top: 1em;
+	margin-right: 5px;
+	float: right;
+	text-decoration: none;
+}
+
+div.header a {
+	color: #00f;
+}
+
+div.header a:hover, div.header a:focus, div.header a:active {
+	cursor: pointer;
+	color: #f80;
+}
+
+/*清理浮动元素*/
+br.clear {
+	clear: both;
+}
+
+div.content {
+	position: absolute;
+	/*防止背景盖住语言选择器*/
+	z-index: -1;
+	height: 80%;
+	/*设置宽度和wrapper一致*/
+	width: 60em;
+	/*防止随着字号的增大整个布局会比浏览器窗口宽而出现滚动条：ie6不支持max-width：这里暂时不处理，只有对ie6用户的不佳体验说sorry了*/
+	max-width: 95%;
+	margin-top: 2em;
+	border-radius: 0.5em;
+	background-color: #bf4;
+}
+
+form#login {
+	float: left;
+	margin: 6em;
+	width: 20em;
+	height: 18em;
+	border-radius: 0.5em;
+	box-shadow: -5px -5px 5px #580;
+	background-color: #efc;
+}
+
+form#login h3#logintitle {
+	font-size: 1.5em;
+	margin: 0.5em 0 1em 1em;
+}
+
+form#login input {
+	display: block;
+	float: left;
+	margin-bottom: 0.5em;
+	font-size: 1.2em;
+	padding: 0.2em 0.5em;
+	width: 18em;
+	height: 1.5em;
+	border: 1px solid #ccc;
+}
+
+form#login input {
+	display: block;
+	float: left;
+	margin: 0.5em 1em;
+	font-size: 1.2em;
+	padding: 0.2em 0.5em;
+	width: 14em;
+	height: 1.5em;
+	border: 1px solid #cc8;
+}
+
+form#login input#rmb {
+	/*覆盖上面input的设置，还原checkbox的默认属性*/
+	width: auto;
+	height: auto;
+	padding: auto;
+	margin: auto;
+	font-size: auto;
+	margin-left: 1em;
+	margin-right: 0.2em;
+}
+
+form#login label#rmblb {
+	display: block;
+	float: left;
+	font-size: 0.8em;
+}
+
+form#login input#rmb:hover {
+	cursor: pointer;
+}
+
+form#login a#cbname {
+	position: relative;
+	color: #666;
+}
+
+form#login a span#cbtip {
+	display: none;
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	width: 8em;
+	padding: 0.2em;
+	color: #963;
+	border-radius: 6px;
+	border: 1px solid #963;
+	background-color: #ffc;
+}
+
+form#login a#cbname:hover {
+	cursor: pointer;
+}
+
+form#login a#cbname:hover span#cbtip, form#login a#cbname:focus span#cbtip {
+	display: block;
+}
+
+form#login input:focus {
+	outline: 1px solid #0f0;
+	background-color: #ffc;
+}
+
+form#login input#button {
+	display: block;
+	font-size: 1.5em;
+	cursor: pointer;
+	color: #fff;
+	margin-left: 1em;
+	width: 8em;
+	height: 2em;
+	text-align: center;
+	border: 1px solid #6a3;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	text-shadow: 1px 1px 1px #660;
+	-moz-box-shadow: 1px 1px 1px #660;
+	-webkit-box-shadow: 1px 1px 1px #660;
+	box-shadow: 2px 2px 2px #660;
+	background-color: #8c1;
+}
+
+form#login input#button:hover {
+	box-shadow: none;
+}
+
+form#login div#btns input.disable {
+	display: none;
+}
+
+form#login div#lgtip {
+	position: absolute;
+	margin-top: -11em;
+	margin-left: 22em;
+	width: 16em;
+	height: 5em;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #660;
+	background-color: #efc;
+}
+
+form#login div.hiddentip {
+	display: none;
+}
+
+form#login div#lgtip span#shape {
+	display: block;
+	margin-top: 1.5em;
+	margin-left: -2em;
+	width: 0;
+	height: 0;
+	border-width: 1em;
+	/*IE6下把边框设置成transparent时会出现黑影,并不会透明,把border-style设置成dashed可以解决*/
+	border-style: solid dashed dashed dashed;
+	border-color: transparent #efc transparent transparent;
+}
+
+form#login div#lgtip span#lginfo {
+	display: block;
+	margin-top: -1.5em;
+	margin-left: 1em;
+}
+
+div.footer {
+	clear: both;
+}
+
+.invisible {
+	display: none;
+}
+
+div#cover {
+	/*如果div的position是fixed或者absolute，那么当div的高度设置为百分比(例如100%)时，
+	div的高度将参照浏览器可视区域(viewport)的高度来计算。此外，设置position为fixed，
+	可以使得浏览器即使在scroll或resize时也保证遮罩层一直挡在页面的可视区域*/
+	position: fixed;
+	/*IE6不支持position:fixed,所以用css hack:_*/
+	_position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/*IE6中，height:100%不起作用,div的高度不再参照浏览器可视区域的高度;
+	这里需要用js实现，这里暂时不处理，以后有时间再补充*/
+	height: 100%;
+	/*用来避免滚动条的出现*/
+	overflow: hidden;
+	background-color: rgba(128, 128, 128, 0.3);
+}
+
+div#center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+ul#language, div#logintip {
+	position: relative;
+	margin-top: -50%;
+	margin-left: -50%;
+	padding: 1em;
+	border-radius: 0.5em;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+ul#language {
+	padding-top: 2em;
+	width: 20em;
+	height: 10em;
+}
+
+ul#language li {
+	float: left;
+	margin-left: 1em;
+}
+
+ul#language .invalid {
+	font-weight: bold;
+}
+
+ul#language a:hover, ul#language a:focus, ul#language a:active {
+	cursor: pointer;
+	color: #f60;
+}
+
+ul#language a.invalid:hover, ul#language a.invalid:focus, ul#language a.invalid:active
+	{
+	cursor: default;
+	color: #000;
+}
+
+ul#language a.close {
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
+	font-size: 80%;
+	color: #aaa;
+}
+
+ul#language a.close:hover, ul#language a.close:focus, ul#language a.close:active
+	{
+	cursor: pointer;
+	color: #000;
+}
+
+div#logintip {
+	width: 12em;
+	height: 6em;
+	box-shadow: 3px 3px 3px #660;
+}
+
+div#logintip a#logintok, div#logintip a#logincancel {
+	position: absolute;
+	display: block;
+	float: left;
+	cursor: pointer;
+	color: #fff;
+	left: 1.5em;
+	bottom: 0.5em;
+	width: 5em;
+	line-height: 2em;
+	text-align: center;
+	border: 1px solid #6a3;
+	border-radius: 0.2em;
+	box-shadow: 1px 1px 1px #660;
+	background-color: #8c1;
+}
+
+div#logintip a#logincancel {
+	left: 7.5em;
+}
+
+div#logintip a:hover {
+	color: #ef3;
+	background-color: #8d0;
+}
+
+div#whitecloth {
+	/*如果div的position是fixed或者absolute，那么当div的高度设置为百分比(例如100%)时，
+	div的高度将参照浏览器可视区域(viewport)的高度来计算。此外，设置position为fixed，
+	可以使得浏览器即使在scroll或resize时也保证遮罩层一直挡在页面的可视区域*/
+	position: fixed;
+	/*IE6不支持position:fixed,所以用css hack:_*/
+	_position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/*IE6中，height:100%不起作用,div的高度不再参照浏览器可视区域的高度;
+	这里需要用js实现，这里暂时不处理，以后有时间再补充*/
+	height: 100%;
+	/*用来避免滚动条的出现*/
+	overflow: hidden;
+	background-color: #fff;
+}
