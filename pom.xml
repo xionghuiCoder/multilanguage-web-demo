@@ -4,7 +4,7 @@
 
 	<groupId>com.sohu</groupId>
 	<artifactId>multilanguage-web-demo</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>multilanguage-web-demo Maven Webapp</name>
@@ -14,7 +14,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.6</java.version>
-		<multilanguage.version>1.0.0</multilanguage.version>
+		<multilanguage.version>1.0-SNAPSHOT</multilanguage.version>
 		<jackson-databind>2.1.3</jackson-databind>
 		<spring.version>4.0.5.RELEASE</spring.version>
 		<junit.version>4.12</junit.version>
@@ -75,7 +75,27 @@
 					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
